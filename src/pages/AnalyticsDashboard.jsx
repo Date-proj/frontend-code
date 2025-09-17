@@ -75,13 +75,13 @@ const AnalyticsDashboard = ({ role = 'SUPER_ADMIN' }) => {
       setIsLoading(true);
       
       // Counts
-      const countsResp = await fetch((process.env.REACT_APP_API_URL || 'http://localhost:8080/api') + '/public/dashboard/stats', { credentials: 'omit' });
+      const countsResp = await fetch((process.env.REACT_APP_API_URL || 'http://ec2-16-171-138-159.eu-north-1.compute.amazonaws.com:8080/api') + '/public/dashboard/stats', { credentials: 'omit' });
       if (!countsResp.ok) throw new Error('Failed to fetch public stats: ' + countsResp.status);
       const counts = await countsResp.json();
       setStats(counts);
       
       // Build top/bottom district data from public farmers-with-kyc
-      const farmersResp = await fetch((process.env.REACT_APP_API_URL || 'http://localhost:8080/api') + '/public/farmers-with-kyc', { credentials: 'omit' });
+      const farmersResp = await fetch((process.env.REACT_APP_API_URL || 'http://ec2-16-171-138-159.eu-north-1.compute.amazonaws.com:8080/api') + '/public/farmers-with-kyc', { credentials: 'omit' });
       if (!farmersResp.ok) throw new Error('Failed to fetch public farmers: ' + farmersResp.status);
       const farmers = await farmersResp.json();
       
